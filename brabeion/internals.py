@@ -27,6 +27,7 @@ class BadgeCache(object):
 
     def possibly_award_badge(self, event, **state):
         if event in self._event_registry:
+            state['event'] = event
             for badge in self._event_registry[event]:
                 badge.possibly_award(**state)
 
